@@ -13,12 +13,9 @@ import defaultCardImage from "../images/shield-icon.svg";
 
 import { ReactComponent as SvgDecoratorBlob3 } from "../images/svg-decorator-blob-3.svg";
 
-import SupportIconImage from "../images/support-icon.svg";
-import ShieldIconImage from "../images/shield-icon.svg";
-import CustomizeIconImage from "../images/customize-icon.svg";
-import FastIconImage from "../images/fast-icon.svg";
-import ReliableIconImage from "../images/reliable-icon.svg";
-import SimpleIconImage from "../images/simple-icon.svg";
+import Mision from "../images/mision.png";
+import Vision from "../images/vision.png";
+import Valores from "../images/valores.png";
 
 const Container = tw.div`relative`;
 
@@ -27,7 +24,7 @@ const ThreeColumnContainer = styled.div`
 `;
 const Subheading = tw(SubheadingBase)`mb-4`;
 const Heading = tw(SectionHeading)`w-full`;
-const Description = tw(SectionDescription)`w-full text-center`;
+const Description = tw(SectionDescription)`w-full text-center text-black`;
 
 const VerticalSpacer = tw.div`mt-10 w-full`;
 
@@ -49,11 +46,11 @@ const Card = styled.div`
   }
 
   .title {
-    ${tw`mt-4 tracking-wide font-bold text-2xl leading-none`}
+    ${tw`mt-4 tracking-wide font-bold text-2xl leading-none text-primary-500`}
   }
 
   .description {
-    ${tw`mt-1 sm:mt-4 font-medium text-secondary-100 leading-loose`}
+    ${tw`mt-1 sm:mt-4 font-medium text-secondary-900 leading-loose`}
   }
 `;
 
@@ -63,60 +60,60 @@ const DecoratorBlob = styled(SvgDecoratorBlob3)`
 
 const ThreeColWithSideImage = ({
   cards = null,
-  heading = "Amazing Features",
-  subheading = "Features",
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  heading = "Objetivo General",
+  subheading = "¿Quiénes somos?",
+  description = "Ofrecerle al cliente la mayor satisfacción, brindándole los mejores productos de la más alta calidad y tecnología en materiales. Con lo cual le permita tener la mayor confiabilidad y administración del recurso de la energía eléctrica, para así contribuir con una mejor calidad de vida en el desarrollo de nuestros clientes y la sociedad.",
 }) => {
-  /*
-   * This componets has an array of object denoting the cards defined below. Each object in the cards array can have the key (Change it according to your need, you can also add more objects to have more cards in this feature component) or you can directly pass this using the cards prop:
-   *  1) imageSrc - the image shown at the top of the card
-   *  2) title - the title of the card
-   *  3) description - the description of the card
-   *  If a key for a particular card is not provided, a default value is used
-   */
-
   const defaultCards = [
     {
-      imageSrc: ShieldIconImage,
-      title: "Secure",
+      imageSrc: Vision,
+      title: "Visión",
       description:
-        "We strictly only deal with vendors that provide top notch security.",
+        "Nuestra visión es ser la mejor empresa en distribución y servicio en productos de papelería y sus servicios necesarios.",
     },
-    { imageSrc: SupportIconImage, title: "24/7 Support" },
-    { imageSrc: CustomizeIconImage, title: "Customizable" },
-    { imageSrc: ReliableIconImage, title: "Reliable" },
-    { imageSrc: FastIconImage, title: "Fast" },
-    { imageSrc: SimpleIconImage, title: "Easy" },
+    {
+      imageSrc: Mision,
+      title: "Misión",
+      description:
+        "Ser líder en el mercado como proveedor y distribuidor al mejor precio sin perder la calidad que nuestros clientes requieren junto con el compromiso con nuestros clientes y nuestros empleados.",
+    },
+    {
+      imageSrc: Valores,
+      title: "Valores",
+      description: "Honestidad | Lealtad | Compromiso | Responsabilidad",
+    },
   ];
 
   if (!cards) cards = defaultCards;
 
   return (
-    <Container>
-      <ThreeColumnContainer>
-        {subheading && <Subheading>{subheading}</Subheading>}
-        <Heading>{heading}</Heading>
-        {description && <Description>{description}</Description>}
-        <VerticalSpacer />
-        {cards.map((card, i) => (
-          <Column key={i}>
-            <Card>
-              <span className="imageContainer">
-                <img src={card.imageSrc || defaultCardImage} alt="" />
-              </span>
-              <span className="textContainer">
-                <span className="title">{card.title || "Fully Secure"}</span>
-                <p className="description">
-                  {card.description ||
-                    "Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud."}
-                </p>
-              </span>
-            </Card>
-          </Column>
-        ))}
-      </ThreeColumnContainer>
-      <DecoratorBlob />
-    </Container>
+    <div id="quienes">
+      <Container>
+        <ThreeColumnContainer>
+          {subheading && <Subheading>{subheading}</Subheading>}
+          <Heading>{heading}</Heading>
+          {description && <Description>{description}</Description>}
+          <VerticalSpacer />
+          {cards.map((card, i) => (
+            <Column key={i}>
+              <Card>
+                <span className="imageContainer">
+                  <img src={card.imageSrc || defaultCardImage} alt="" />
+                </span>
+                <span className="textContainer">
+                  <span className="title">{card.title || "Fully Secure"}</span>
+                  <p className="description">
+                    {card.description ||
+                      "Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud."}
+                  </p>
+                </span>
+              </Card>
+            </Column>
+          ))}
+        </ThreeColumnContainer>
+        <DecoratorBlob />
+      </Container>
+    </div>
   );
 };
 

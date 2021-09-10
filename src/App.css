@@ -15,3 +15,15 @@
   transform: scale(0);
   /* transform: translateY(-150%); */
 }
+
+.footer-logo-off svg {
+  width: 50vw;
+  height: auto;
+}
+
+@media (min-width: 600px) {
+  .footer-logo-off svg {
+    width: 10vw;
+    height: auto;
+  }
+}

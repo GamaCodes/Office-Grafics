@@ -16,9 +16,6 @@ const Header = tw.header`
 
 export const NavLinks = tw.div`inline-block`;
 
-/* hocus: stands for "on hover or focus"
- * hocus:bg-primary-700 will apply the bg-primary-700 class on hover or focus
- */
 export const NavLink = tw.a`
   text-lg my-2 lg:text-sm lg:mx-6 lg:my-0
   font-semibold tracking-wide transition duration-300
@@ -64,15 +61,15 @@ const Light = ({
 }) => {
   const defaultLinks = [
     <NavLinks key={1}>
-      <NavLink href="/#">About</NavLink>
-      <NavLink href="/#">Blog</NavLink>
-      <NavLink href="/#">Pricing</NavLink>
-      <NavLink href="/#">Contact Us</NavLink>
-      <NavLink href="/#" tw="lg:ml-12!">
-        Login
-      </NavLink>
-      <PrimaryLink css={roundedHeaderButton && tw`rounded-full`} href="/#">
-        Sign Up
+      <NavLink href="#quienes">¿Quiénes somos?</NavLink>
+      <NavLink href="#cobertura">Cobertura</NavLink>
+      <NavLink href="#servicios">Servicios</NavLink>
+      <NavLink href="#productos">Productos</NavLink>
+      <PrimaryLink
+        css={roundedHeaderButton && tw`rounded-full`}
+        href="#contacto"
+      >
+        Contacto
       </PrimaryLink>
     </NavLinks>,
   ];
@@ -201,7 +198,26 @@ const Light = ({
           animate={animation}
           css={collapseBreakpointCss.mobileNavLinks}
         >
-          {links}
+          <NavLinks key={1}>
+            <NavLink onClick={toggleNavbar} href="#quienes">
+              ¿Quiénes somos?
+            </NavLink>
+            <NavLink onClick={toggleNavbar} href="#cobertura">
+              Cobertura
+            </NavLink>
+            <NavLink onClick={toggleNavbar} href="#servicios">
+              Servicios
+            </NavLink>
+            <NavLink onClick={toggleNavbar} href="#productos">
+              Productos
+            </NavLink>
+            <PrimaryLink
+              css={roundedHeaderButton && tw`rounded-full`}
+              href="#contacto"
+            >
+              Contacto
+            </PrimaryLink>
+          </NavLinks>
         </MobileNavLinks>
         <NavToggle
           onClick={toggleNavbar}
@@ -217,12 +233,6 @@ const Light = ({
     </Header>
   );
 };
-
-/* The below code is for generating dynamic break points for navbar.
- * Using this you can specify if you want to switch
- * to the toggleable mobile navbar at "sm", "md" or "lg" or "xl" above using the collapseBreakpointClass prop
- * Its written like this because we are using macros and we can not insert dynamic variables in macros
- */
 
 const collapseBreakPointCssMap = {
   sm: {

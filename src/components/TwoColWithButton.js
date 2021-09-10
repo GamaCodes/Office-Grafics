@@ -6,7 +6,6 @@ import {
   SectionHeading,
   Subheading as SubheadingBase,
 } from "./misc/Headings.js";
-import { PrimaryButton as PrimaryButtonBase } from "./misc/Buttons.js";
 import TeamIllustrationSrc from "../images/team-illustration-2.svg";
 import { ReactComponent as SvgDotPattern } from "../images/dot-pattern.svg";
 
@@ -37,25 +36,21 @@ const Subheading = tw(SubheadingBase)`text-center md:text-left`;
 const Heading = tw(
   SectionHeading
 )`mt-4 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center md:text-left leading-tight`;
-const Description = tw.p`mt-4 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`;
-
-const PrimaryButton = styled(PrimaryButtonBase)((props) => [
-  tw`mt-8 md:mt-8 text-sm inline-block mx-auto md:mx-0`,
-  props.buttonRounded && tw`rounded-full`,
-]);
-
+const Description = styled.p`
+  ${tw`mt-4 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-900`}
+  span {
+    ${tw`text-primary-500`}
+  }
+`;
 const TwoColWithButton = ({
   subheading = "Our Expertise",
   heading = (
     <>
-      Designed & Developed by <span tw="text-primary-500">Professionals.</span>
+      Nuestra <span tw="text-primary-500">Cobertura</span>
     </>
   ),
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  primaryButtonText = "Learn More",
-  primaryButtonUrl = "https://timerse.com",
+  description = "Office GRAFICS, actualmente Ofrece sus Servicios regulares en las Principales, Ciudades del Estado de Tabasco con envíos especiales a la CDMX:",
   imageSrc = TeamIllustrationSrc,
-  buttonRounded = true,
   imageRounded = true,
   imageBorder = false,
   imageShadow = false,
@@ -64,37 +59,45 @@ const TwoColWithButton = ({
   imageDecoratorBlobCss = null,
   textOnLeft = true,
 }) => {
-  // The textOnLeft boolean prop can be used to display either the text on left or right side of the image.
-
   return (
-    <Container>
-      <TwoColumn>
-        <ImageColumn>
-          <Image
-            css={imageCss}
-            src={imageSrc}
-            imageBorder={imageBorder}
-            imageShadow={imageShadow}
-            imageRounded={imageRounded}
-          />
-          {imageDecoratorBlob && <DecoratorBlob css={imageDecoratorBlobCss} />}
-        </ImageColumn>
-        <TextColumn textOnLeft={textOnLeft}>
-          <TextContent>
-            <Subheading>{subheading}</Subheading>
-            <Heading>{heading}</Heading>
-            <Description>{description}</Description>
-            <PrimaryButton
-              buttonRounded={buttonRounded}
-              as="a"
-              href={primaryButtonUrl}
-            >
-              {primaryButtonText}
-            </PrimaryButton>
-          </TextContent>
-        </TextColumn>
-      </TwoColumn>
-    </Container>
+    <div id="cobertura">
+      <Container>
+        <TwoColumn>
+          <ImageColumn>
+            <Image
+              css={imageCss}
+              src={imageSrc}
+              imageBorder={imageBorder}
+              imageShadow={imageShadow}
+              imageRounded={imageRounded}
+            />
+            {imageDecoratorBlob && (
+              <DecoratorBlob css={imageDecoratorBlobCss} />
+            )}
+          </ImageColumn>
+          <TextColumn textOnLeft={textOnLeft}>
+            <TextContent>
+              <Subheading>{subheading}</Subheading>
+              <Heading>{heading}</Heading>
+              <Description>{description}</Description>
+              <Description>
+                Villahermosa <span className="text-primary-500">|</span>{" "}
+                Macuspana <span className="text-primary-500">|</span> Jalpa de
+                Méndez. <span className="text-primary-500">|</span> Paraíso{" "}
+                <span className="text-primary-500">|</span> Teapa{" "}
+                <span className="text-primary-500">|</span> Huimanguillo{" "}
+                <span className="text-primary-500">|</span> Cunduacán
+              </Description>
+              <Description>
+                Sin embargo, en Invitaciones o Solicitudes especiales, su
+                Cobertura se puede ampliar a otras áreas más alejadas como
+                Oaxaca, Chiapas, Campeche, Yucatán, Veracruz, etc.
+              </Description>
+            </TextContent>
+          </TextColumn>
+        </TwoColumn>
+      </Container>
+    </div>
   );
 };
 
