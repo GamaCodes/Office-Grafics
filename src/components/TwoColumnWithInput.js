@@ -45,8 +45,8 @@ const TwoColumnWithInput = ({ roundedHeaderButton }) => {
               Office <span tw="text-primary-500">Grafics</span>
             </Heading>
             <Paragraph>
-              Somos empresa mexicana fundada en el año 2010, en el estado de
-              Tabasco, siendo después 2018 su año de confirmación en la
+              Somos empresa mexicana fundada en el año 2010, en la Ciudad de
+              México, siendo después 2018 su año de confirmación en la
               preferencia de nuestras clientes.
             </Paragraph>
             <Paragraph>
